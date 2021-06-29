@@ -1,0 +1,443 @@
+<div class="page">
+
+    <h3>Pregled testa koji ste upravo popunili!</h3>
+    <br><br>
+    <h5>Osnovni podaci o testu:</h5> <br><br>
+    <table class="table">
+        <thead bgcolor="#6cbde0">
+            <td>Naziv</td>
+            <td>Datum pocetka</td>
+            <td>Datum zavrsetka</td>
+            <td>O anketi</td>
+            <td>Vreme izrade</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{test.Name}}</td>
+                <td>{{test.StartDate}}</td>
+                <td>{{test.EndDate}}</td>
+                <td>{{test.About}}</td>
+                <td>{{test.Time}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <div>
+        <h4>Pitanja:</h4>
+        <br>
+        <div *ngFor='let q of test.Questions'><br>
+            <h5>Pitanje: {{q.Question}}</h5>
+            <div *ngIf='test.Questions[0]!=null && q==test.Questions[0]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[0]!=null && q==test.Questions[0]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[0]!=null && q==test.Questions[0]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+            <!--******************************************DRUGO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[1]!=null && q==test.Questions[1]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[1]!=null && q==test.Questions[1]'>
+                           <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[1]!=null && q==test.Questions[1]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+            <!--******************************************TRECE PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[2]!=null && q==test.Questions[2]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[2]!=null && q==test.Questions[2]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[2]!=null && q==test.Questions[2]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+
+            <!--******************************************CETVRTO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[3]!=null && q==test.Questions[3]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[3]!=null && q==test.Questions[3]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[3]!=null && q==test.Questions[3]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+
+            <!--******************************************PETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[4]!=null && q==test.Questions[4]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[4]!=null && q==test.Questions[4]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[4]!=null && q==test.Questions[4]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/ {{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/ {{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/ {{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/ {{q.Points}}</p>
+                </div>
+            </div>
+
+            <!--******************************************SESTO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[5]!=null && q==test.Questions[5]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[5]!=null && q==test.Questions[5]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[5]!=null && q==test.Questions[5]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+
+            <!--******************************************SEDMO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[6]!=null && q==test.Questions[6]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[6]!=null && q==test.Questions[6]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[6]!=null && q==test.Questions[6]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+            <!--******************************************OSMO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[7]!=null && q==test.Questions[7]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[7]!=null && q==test.Questions[7]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[7]!=null && q==test.Questions[7]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+            <!--******************************************DEVETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[8]!=null && q==test.Questions[8]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[8]!=null && q==test.Questions[8]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[8]!=null && q==test.Questions[8]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+
+            <!--******************************************DESETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[9]!=null && q==poll.Questions[9]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[9]!=null && q==test.Questions[9]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[9]!=null && q==test.Questions[9]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                    <p class="correct">Tacan odgovor: {{q.CorrectAnswers[0]}}</p>
+                    <p class="correct">Osvojeno poena: {{q.WonPoints}}/{{q.Points}}</p>
+                </div>
+            </div>
+            <!--******************************************KRAJ PITANJA***************************************************************-->
+        </div>
+
+        <h4>Osvojili ste ukupno {{brojOsvojenih}}/{{maksimumPoena}}</h4>
+        <br>
+        <button class='btn btn-info' (click)='povratak()'>Povratak na pocetnu stranu</button>
+        
+        <br><br>
+
+        <br><br><br>
+
+    </div>
+    

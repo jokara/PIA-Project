@@ -1,0 +1,50 @@
+<div class="page">
+
+    <h3>Izaberite koju anketu hocete da obrisete!</h3>
+    <br><br>
+    <h5>Vase ankete:</h5> <br><br>
+
+    
+    <table class="table" *ngIf='allPolls[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Tip
+            </td>
+            <td>
+                Pregledaj
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let p of allPolls'>
+                <td>
+                    {{p.Name}}
+                </td>
+                <td>
+                    {{p.StartDate}}
+                </td>
+                <td>
+                    {{p.EndDate}}
+                </td>
+                <td>
+                    {{p.Type}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='obrisiAnketu(p)'>Obrisi</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    
+    <br><br><br><br><br><br><br><br><br>
+</div>

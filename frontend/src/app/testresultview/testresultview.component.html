@@ -1,0 +1,85 @@
+<div class="page">
+
+    <h3>Izaberite koji test hocete da pogledate!</h3>
+    <br><br>
+    <h5>Vasi testovi:</h5> <br><br>
+
+    
+    <table class="table" *ngIf='allTests[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Dozvoljeno vreme
+            </td>
+            <td>
+                Pregledaj
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let t of allTests'>
+                <td>
+                    {{t.Name}}
+                </td>
+                <td>
+                    {{t.StartDate}}
+                </td>
+                <td>
+                    {{t.EndDate}}
+                </td>
+                <td>
+                    {{t.Type}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='popuniTrenutnu(t)'>Pregledaj</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    
+    <div *ngIf='testResults[0]!=null'>
+        <h5>Izabrani test:</h5><br><br>
+        <table class="table">
+            <thead bgcolor="#6deee0">
+                <td>Ime</td>
+                <td>Prezime</td>
+                <td>Osvojen broj poena</td>
+                <td>Maksimalan moguci broj poena</td>
+                <td>Procenat</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of testResults">
+                    <td>{{t.Name}}</td>
+                    <td>{{t.Surname}}</td>
+                    <td>{{t.Points}}</td>
+                    <td>{{t.MaxPoints}}</td>
+                    <td>{{t.Percent}}%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center; align-items: center;">
+            <div style="display: block; height: 800px; width: 850px;" align="center">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [labels]="pieChartLabels"
+                        [chartType]="pieChartType"
+                        >
+                </canvas>
+            </div>
+        </div>
+        
+    </div>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    <div *ngIf='testResults[0]==null'>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <br><br><br>
+</div>

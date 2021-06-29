@@ -1,0 +1,675 @@
+<div class="page">
+
+    <h3>Molimo Vas da popunite test!</h3>
+    <br><br>
+    <h5>Osnovni podaci o testu:</h5> <br><br>
+    <table class="table">
+        <thead bgcolor="#6cbde0">
+            <td>Naziv</td>
+            <td>Datum pocetka</td>
+            <td>Datum zavrsetka</td>
+            <td>O anketi</td>
+            <td>Vreme izrade</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{test.Name}}</td>
+                <td>{{test.StartDate}}</td>
+                <td>{{test.EndDate}}</td>
+                <td>{{test.About}}</td>
+                <td>{{test.Time}}min</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <div>
+        <h4>Pitanja:</h4>
+        <br>
+        <div *ngFor='let q of test.Questions; let i=index'><br>
+            <h5 *ngIf='i>=downBoundNextPage && i<upBoundNextPage'>Pitanje: {{q.Question}}</h5>
+            <div *ngIf='test.Questions[0]!=null && q==test.Questions[0] && 0>=downBoundNextPage && 0<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[0]!=null && q==test.Questions[0]'>
+                            <input type="radio" name="answerFirstQuestion" value='{{a}}'
+                                [(ngModel)]='answerFirstQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[0]!=null && q==test.Questions[0]'>
+                            <input type="checkbox" name="answerFirstQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerFirstQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerFirstQuestion" [(ngModel)]='answerFirstQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFirstQuestion[0]" [(ngModel)]='answerFirstQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFirstQuestion[1]" [(ngModel)]='answerFirstQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFirstQuestion[2]" [(ngModel)]='answerFirstQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFirstQuestion[3]" [(ngModel)]='answerFirstQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFirstQuestion[4]" [(ngModel)]='answerFirstQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFirstQuestion[0]" [(ngModel)]='answerFirstQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFirstQuestion[1]" [(ngModel)]='answerFirstQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFirstQuestion[2]" [(ngModel)]='answerFirstQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFirstQuestion[3]" [(ngModel)]='answerFirstQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFirstQuestion[4]" [(ngModel)]='answerFirstQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+            <!--******************************************DRUGO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[1]!=null && q==test.Questions[1] && 1>=downBoundNextPage && 1<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[1]!=null && q==test.Questions[1]'>
+                            <input type="radio" name="answerSecondQuestion[index]" value='{{a}}'
+                                [(ngModel)]='answerSecondQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[1]!=null && q==test.Questions[1]'>
+                            <input type="checkbox" name="answerSecondQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerSecondQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerSecondQuestion" [(ngModel)]='answerSecondQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSecondQuestion[0]" [(ngModel)]='answerSecondQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSecondQuestion[1]" [(ngModel)]='answerSecondQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSecondQuestion[2]" [(ngModel)]='answerSecondQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSecondQuestion[3]" [(ngModel)]='answerSecondQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSecondQuestion[4]" [(ngModel)]='answerSecondQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSecondQuestion[0]" [(ngModel)]='answerSecondQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSecondQuestion[1]" [(ngModel)]='answerSecondQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSecondQuestion[2]" [(ngModel)]='answerSecondQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSecondQuestion[3]" [(ngModel)]='answerSecondQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSecondQuestion[4]" [(ngModel)]='answerSecondQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+            <!--******************************************TRECE PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[2]!=null && q==test.Questions[2] && 2>=downBoundNextPage && 2<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[2]!=null && q==test.Questions[2]'>
+                            <input type="radio" name="answerThirdQuestion[index]" value='{{a}}'
+                                [(ngModel)]='answerThirdQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[2]!=null && q==test.Questions[2]'>
+                            <input type="checkbox" name="answerThirdQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerThirdQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerThirdQuestion" [(ngModel)]='answerThirdQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerThirdQuestion[0]" [(ngModel)]='answerThirdQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerThirdQuestion[1]" [(ngModel)]='answerThirdQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerThirdQuestion[2]" [(ngModel)]='answerThirdQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerThirdQuestion[3]" [(ngModel)]='answerThirdQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerThirdQuestion[4]" [(ngModel)]='answerThirdQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerThirdQuestion[0]" [(ngModel)]='answerThirdQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerThirdQuestion[1]" [(ngModel)]='answerThirdQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerThirdQuestion[2]" [(ngModel)]='answerThirdQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerThirdQuestion[3]" [(ngModel)]='answerThirdQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerThirdQuestion[4]" [(ngModel)]='answerThirdQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************CETVRTO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[3]!=null && q==test.Questions[3] && 3>=downBoundNextPage && 3<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[3]!=null && q==test.Questions[3]'>
+                            <input type="radio" name="answerFourthQuestion[index]" value='{{a}}'
+                                [(ngModel)]='answerFourthQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[3]!=null && q==test.Questions[3]'>
+                            <input type="checkbox" name="answerFourthQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerFourthQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerFourthQuestion" [(ngModel)]='answerFourthQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFourthQuestion[0]" [(ngModel)]='answerFourthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFourthQuestion[1]" [(ngModel)]='answerFourthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFourthQuestion[2]" [(ngModel)]='answerFourthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFourthQuestion[3]" [(ngModel)]='answerFourthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFourthQuestion[4]" [(ngModel)]='answerFourthQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFourthQuestion[0]" [(ngModel)]='answerFourthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFourthQuestion[1]" [(ngModel)]='answerFourthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFourthQuestion[2]" [(ngModel)]='answerFourthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFourthQuestion[3]" [(ngModel)]='answerFourthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFourthQuestion[4]" [(ngModel)]='answerFourthQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************PETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[4]!=null && q==test.Questions[4] && 4>=downBoundNextPage && 4<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[4]!=null && q==test.Questions[4]'>
+                            <input type="radio" name="answerFifthQuestion[index]" value='{{a}}'
+                                [(ngModel)]='answerFifthQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[4]!=null && q==test.Questions[4]'>
+                            <input type="checkbox" name="answerFifthQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerFifthQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerFifthQuestion" [(ngModel)]='answerFifthQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFifthQuestion[0]" [(ngModel)]='answerFifthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFifthQuestion[1]" [(ngModel)]='answerFifthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFifthQuestion[2]" [(ngModel)]='answerFifthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFifthQuestion[3]" [(ngModel)]='answerFifthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFifthQuestion[4]" [(ngModel)]='answerFifthQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerFifthQuestion[0]" [(ngModel)]='answerFifthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerFifthQuestion[1]" [(ngModel)]='answerFifthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerFifthQuestion[2]" [(ngModel)]='answerFifthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerFifthQuestion[3]" [(ngModel)]='answerFifthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerFifthQuestion[4]" [(ngModel)]='answerFifthQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************SESTO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[5]!=null && q==test.Questions[5] && 5>=downBoundNextPage && 5<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[5]!=null && q==test.Questions[5]'>
+                            <input type="radio" name="answerSixthQuestion" value='{{a}}'
+                                [(ngModel)]='answerSixthQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[5]!=null && q==test.Questions[5]'>
+                            <input type="checkbox" name="answerSixthQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerSixthQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerSixthQuestion" [(ngModel)]='answerSixthQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSixthQuestion[0]" [(ngModel)]='answerSixthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSixthQuestion[1]" [(ngModel)]='answerSixthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSixthQuestion[2]" [(ngModel)]='answerSixthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSixthQuestion[3]" [(ngModel)]='answerSixthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSixthQuestion[4]" [(ngModel)]='answerSixthQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSixthQuestion[0]" [(ngModel)]='answerSixthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSixthQuestion[1]" [(ngModel)]='answerSixthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSixthQuestion[2]" [(ngModel)]='answerSixthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSixthQuestion[3]" [(ngModel)]='answerSixthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSixthQuestion[4]" [(ngModel)]='answerSixthQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************SEDMO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[6]!=null && q==test.Questions[6] && 6>=downBoundNextPage && 6<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[6]!=null && q==test.Questions[6]'>
+                            <input type="radio" name="answerSeventhQuestion" value='{{a}}'
+                                [(ngModel)]='answerSeventhQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[6]!=null && q==test.Questions[6]'>
+                            <input type="checkbox" name="answerSeventhQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerSeventhQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerSeventhQuestion" [(ngModel)]='answerSeventhQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSeventhQuestion[0]" [(ngModel)]='answerSeventhQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSeventhQuestion[1]" [(ngModel)]='answerSeventhQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSeventhQuestion[2]" [(ngModel)]='answerSeventhQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSeventhQuestion[3]" [(ngModel)]='answerSeventhQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSeventhQuestion[4]" [(ngModel)]='answerSeventhQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerSeventhQuestion[0]" [(ngModel)]='answerSeventhQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerSeventhQuestion[1]" [(ngModel)]='answerSeventhQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerSeventhQuestion[2]" [(ngModel)]='answerSeventhQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerSeventhQuestion[3]" [(ngModel)]='answerSeventhQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerSeventhQuestion[4]" [(ngModel)]='answerSeventhQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************OSMO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[7]!=null && q==test.Questions[7] && 7>=downBoundNextPage && 7<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[7]!=null && q==test.Questions[7]'>
+                            <input type="radio" name="answerEightQuestion" value='{{a}}'
+                                [(ngModel)]='answerEightQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[7]!=null && q==test.Questions[7]'>
+                            <input type="checkbox" name="answerEightQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerEightQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerEightQuestion" [(ngModel)]='answerEightQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerEightQuestion[0]" [(ngModel)]='answerEightQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerEightQuestion[1]" [(ngModel)]='answerEightQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerEightQuestion[2]" [(ngModel)]='answerEightQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerEightQuestion[3]" [(ngModel)]='answerEightQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerEightQuestion[4]" [(ngModel)]='answerEightQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerEightQuestion[0]" [(ngModel)]='answerEightQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerEightQuestion[1]" [(ngModel)]='answerEightQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerEightQuestion[2]" [(ngModel)]='answerEightQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerEightQuestion[3]" [(ngModel)]='answerEightQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerEightQuestion[4]" [(ngModel)]='answerEightQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************DEVETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[8]!=null && q==test.Questions[8] && 8>=downBoundNextPage && 8<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[8]!=null && q==test.Questions[8]'>
+                            <input type="radio" name="answerNinthQuestion" value='{{a}}'
+                                [(ngModel)]='answerNinthQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[8]!=null && q==test.Questions[8]'>
+                            <input type="checkbox" name="answerNinthQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerNinthQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerNinthQuestion" [(ngModel)]='answerNinthQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerNinthQuestion[0]" [(ngModel)]='answerNinthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerNinthQuestion[1]" [(ngModel)]='answerNinthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerNinthQuestion[2]" [(ngModel)]='answerNinthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerNinthQuestion[3]" [(ngModel)]='answerNinthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerNinthQuestion[4]" [(ngModel)]='answerNinthQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerNinthQuestion[0]" [(ngModel)]='answerNinthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerNinthQuestion[1]" [(ngModel)]='answerNinthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerNinthQuestion[2]" [(ngModel)]='answerNinthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerNinthQuestion[3]" [(ngModel)]='answerNinthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerNinthQuestion[4]" [(ngModel)]='answerNinthQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+
+            <!--******************************************DESETO PITANJE***************************************************************-->
+            <div *ngIf='test.Questions[9]!=null && q==test.Questions[9] && 9>=downBoundNextPage && 9<upBoundNextPage'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='test.Questions[9]!=null && q==test.Questions[9]'>
+                            <input type="radio" name="answerTenthQuestion" value='{{a}}'
+                                [(ngModel)]='answerTenthQuestion[0]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='test.Questions[9]!=null && q==test.Questions[9]'>
+                            <input type="checkbox" name="answerTenthQuestion[i]" value='{{a}}'
+                                [(ngModel)]='answerTenthQuestion[i]'> {{a}}
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    Unesite odgovor: <br>
+                    <textarea name="answerTenthQuestion" [(ngModel)]='answerTenthQuestion[0]'></textarea>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerTenthQuestion[0]" [(ngModel)]='answerTenthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerTenthQuestion[1]" [(ngModel)]='answerTenthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerTenthQuestion[2]" [(ngModel)]='answerTenthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerTenthQuestion[3]" [(ngModel)]='answerTenthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerTenthQuestion[4]" [(ngModel)]='answerTenthQuestion[4]'>
+                    </div>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    Unesite odgovor: <br>
+                    <div *ngIf='q.NumberAnswers>0'>
+                        <input type="text" name="answerTenthQuestion[0]" [(ngModel)]='answerTenthQuestion[0]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>1'>
+                        <input type="text" name="answerTenthQuestion[1]" [(ngModel)]='answerTenthQuestion[1]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>2'>
+                        <input type="text" name="answerTenthQuestion[2]" [(ngModel)]='answerTenthQuestion[2]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>3'>
+                        <input type="text" name="answerTenthQuestion[3]" [(ngModel)]='answerTenthQuestion[3]'>
+                    </div>
+                    <div *ngIf='q.NumberAnswers>4'>
+                        <input type="text" name="answerTenthQuestion[4]" [(ngModel)]='answerTenthQuestion[4]'>
+                    </div>
+                </div>
+            </div>
+            <!--******************************************KRAJ PITANJA***************************************************************-->
+
+
+        </div>
+        <br><br>
+        <span style='color: rgb(255, 166, 0)'>
+            ***Ukoliko je potrebno vise odgovora odvojiti ih jednim blanko znakom***
+        </span>
+        <div align="left">
+            <h6>Procenat odgovorenih pitanja</h6>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width]="getValue()+'%'" aria aria-valuemin="0"
+                aria-valuemax="100">
+                {{getValue()}}%
+            </div>
+        </div> <br>
+        <div *ngIf="brojPitanjaAnkete>nextPage">
+            <button (click)='prethodnaStranica()' class="btn btn-outline-info">Prethodna stranica</button>&nbsp;&nbsp;&nbsp;
+            <button (click)='sledecaStranica()' class="btn btn-outline-info">Sledeca stranica</button>
+        </div>
+        
+        &nbsp;&nbsp;&nbsp;<br><br>
+        <button (click)='konacnoPredaj()' class="btn btn-outline-danger">Predaj test</button>
+        <br><br>
+        <!--Ne bi bilo lose naglasiti da napustanjem ankete gubi pravo da je resava i da dobija 0 poena!!!-->
+        <!--<button (click)='odustani()' class="btn btn-outline-primary">Odustani</button>-->
+        <br><br><br>
+
+    </div>

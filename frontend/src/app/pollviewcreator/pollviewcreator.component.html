@@ -1,0 +1,85 @@
+<div class="page">
+
+    <h3>Izaberite koju anketu hocete da pogledate!</h3>
+    <br><br>
+    <h5>Vase ankete:</h5> <br><br>
+
+    
+    <table class="table" *ngIf='allPolls[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Tip
+            </td>
+            <td>
+                Pregledaj
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let p of allPolls'>
+                <td>
+                    {{p.Name}}
+                </td>
+                <td>
+                    {{p.StartDate}}
+                </td>
+                <td>
+                    {{p.EndDate}}
+                </td>
+                <td>
+                    {{p.Type}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='popuniTrenutnu(p)'>Pregledaj</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    
+    <div *ngIf='currentPoll!=null'>
+        <h5>Izabrana anketa:</h5><br><br>
+        <table class="table">
+            <thead bgcolor="#6deee0">
+                <td>Naziv</td>
+                <td>Datum pocetka</td>
+                <td>Datum zavrsetka</td>
+                <td>O anketi</td>
+                <td>Tip ankete</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{currentPoll.Name}}</td>
+                    <td>{{currentPoll.StartDate}}</td>
+                    <td>{{currentPoll.EndDate}}</td>
+                    <td>{{currentPoll.About}}</td>
+                    <td>{{currentPoll.Type}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Pitanja:</h4>
+        <br>
+        <div *ngFor='let q of currentPoll.Questions'><br>
+            <h5>Pitanje: {{q.Question}}</h5>
+            <div *ngIf='q.Type=="4" || q.Type=="5"'>
+                Ponudjeni odgovori: <br>
+                <div *ngFor='let a of q.Answers'>
+                    <p>{{a}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    <div *ngIf='currentPoll==null'>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <br><br><br>
+</div>

@@ -1,0 +1,97 @@
+<div class="page">
+    <h1>
+      Stranica za dodavanje novog korisnika
+    </h1>
+  
+    
+    <br>
+    <h4 >Molimo Vas da popunite datu formu</h4>
+    <br><br>
+    <form>
+      <table class="table" align="center">
+        <tbody>
+          <tr>
+            <td>
+              Ime:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type='text' name='name' [(ngModel)]='name'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Prezime:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type='text' name='surname' [(ngModel)]='surname' ng-pattern='[a-z]*'>
+            </td>
+          </tr>
+          <tr >            
+            <td>
+              Korisnicko ime: &nbsp;&nbsp; 
+              <input type='text' name='username' [(ngModel)]='username'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Lozinka:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type='password' name='password' [(ngModel)]='password'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Potvrda lozinke:&nbsp;&nbsp; 
+              <input type='password' name='password2' [(ngModel)]='password2'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Datum rodjenja:&nbsp;&nbsp; 
+              <input type='date' name='birthdate' [(ngModel)]='birthdate'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Mesto rodjenja:&nbsp;&nbsp; 
+              <input type='text' name='birthplace' [(ngModel)]='birthplace'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Telefon:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type='text' name='phone' [(ngModel)]='phone'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              JMBG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+              <input type='text' name='jmbg' [(ngModel)]='jmbg'>
+            </td>
+          </tr>
+          <tr >
+            <td>
+              Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type='text' name='mail' [(ngModel)]='mail'>
+            </td>
+          </tr>
+          <tr >
+            <td>
+              Slika:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <input type="file" (change)="onSelectFile($event)">
+            </td>
+          </tr>
+          <tr height="60">  
+            <td>
+              <button (click)='register()' class="btn btn-success">Registruj korisnika</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button (click)='nazad()' class="btn btn-info">Nazad</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <span style='color: red' >
+      {{ErrorMessage}}
+    </span>
+    
+    <br>
+  </div>

@@ -1,0 +1,50 @@
+<div class="page">
+
+    <h3>Izaberite koji test hocete da obrisete!</h3>
+    <br><br>
+    <h5>Vasi testovi:</h5> <br><br>
+
+    
+    <table class="table" *ngIf='allTests[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Dozvoljeno vreme
+            </td>
+            <td>
+                Pregledaj
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let t of allTests'>
+                <td>
+                    {{t.Name}}
+                </td>
+                <td>
+                    {{t.StartDate}}
+                </td>
+                <td>
+                    {{t.EndDate}}
+                </td>
+                <td>
+                    {{t.Time}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='obrisiTest(t)'>Obrisi</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    
+    <br><br><br><br><br><br>
+</div>

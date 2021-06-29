@@ -1,0 +1,85 @@
+<div class="page">
+
+    <h3>Izaberite koji test hocete da pogledate!</h3>
+    <br><br>
+    <h5>Vasi testovi:</h5> <br><br>
+
+    
+    <table class="table" *ngIf='allTests[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Dozvoljeno vreme
+            </td>
+            <td>
+                Pregledaj
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let t of allTests'>
+                <td>
+                    {{t.Name}}
+                </td>
+                <td>
+                    {{t.StartDate}}
+                </td>
+                <td>
+                    {{t.EndDate}}
+                </td>
+                <td>
+                    {{t.Type}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='popuniTrenutnu(t)'>Pregledaj</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    
+    <div *ngIf='currentTest!=null'>
+        <h5>Izabrani test:</h5><br><br>
+        <table class="table">
+            <thead bgcolor="#6deee0">
+                <td>Naziv</td>
+                <td>Datum pocetka</td>
+                <td>Datum zavrsetka</td>
+                <td>O anketi</td>
+                <td>Tip ankete</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{currentTest.Name}}</td>
+                    <td>{{currentTest.StartDate}}</td>
+                    <td>{{currentTest.EndDate}}</td>
+                    <td>{{currentTest.About}}</td>
+                    <td>{{currentTest.Time}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Pitanja:</h4>
+        <br>
+        <div *ngFor='let q of currentTest.Questions'><br>
+            <h5>Pitanje: {{q.Question}}</h5>
+            <div *ngIf='q.Type=="4" || q.Type=="5"'>
+                Ponudjeni odgovori: <br>
+                <div *ngFor='let a of q.Answers'>
+                    <p>{{a}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    <div *ngIf='currentPoll==null'>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <br><br><br>
+</div>

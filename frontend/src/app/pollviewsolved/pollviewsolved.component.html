@@ -1,0 +1,346 @@
+<div class="page">
+
+    <h3>Pregled ankete koju ste upravo popunili!</h3>
+    <br><br>
+    <h5>Osnovni podaci o anketi:</h5> <br><br>
+    <table class="table">
+        <thead bgcolor="#6cbde0">
+            <td>Naziv</td>
+            <td>Datum pocetka</td>
+            <td>Datum zavrsetka</td>
+            <td>O anketi</td>
+            <td>Tip ankete</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{poll.Name}}</td>
+                <td>{{poll.StartDate}}</td>
+                <td>{{poll.EndDate}}</td>
+                <td>{{poll.About}}</td>
+                <td>{{poll.Type}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <div>
+        <h4>Pitanja:</h4>
+        <br>
+        <div *ngFor='let q of poll.Questions'><br>
+            <h5>Pitanje: {{q.Question}}</h5>
+            <div *ngIf='poll.Questions[0]!=null && q==poll.Questions[0]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[0]!=null && q==poll.Questions[0]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers; let i=index'>
+                        <div *ngIf='poll.Questions[0]!=null && q==poll.Questions[0]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+            <!--******************************************DRUGO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[1]!=null && q==poll.Questions[1]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[1]!=null && q==poll.Questions[1]'>
+                           <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[1]!=null && q==poll.Questions[1]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+            <!--******************************************TRECE PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[2]!=null && q==poll.Questions[2]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[2]!=null && q==poll.Questions[2]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[2]!=null && q==poll.Questions[2]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+            <!--******************************************CETVRTO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[3]!=null && q==poll.Questions[3]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[3]!=null && q==poll.Questions[3]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[3]!=null && q==poll.Questions[3]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+            <!--******************************************PETO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[4]!=null && q==poll.Questions[4]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[4]!=null && q==poll.Questions[4]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[4]!=null && q==poll.Questions[4]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+
+            <!--******************************************SESTO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[5]!=null && q==poll.Questions[5]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[5]!=null && q==poll.Questions[5]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[5]!=null && q==poll.Questions[5]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+            <!--******************************************SEDMO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[6]!=null && q==poll.Questions[6]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[6]!=null && q==poll.Questions[6]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[6]!=null && q==poll.Questions[6]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+            <!--******************************************OSMO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[7]!=null && q==poll.Questions[7]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[7]!=null && q==poll.Questions[7]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[7]!=null && q==poll.Questions[7]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+            <!--******************************************DEVETO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[8]!=null && q==poll.Questions[8]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[8]!=null && q==poll.Questions[8]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[8]!=null && q==poll.Questions[8]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+            <!--******************************************DESETO PITANJE***************************************************************-->
+            <div *ngIf='poll.Questions[9]!=null && q==poll.Questions[9]'>
+                <div *ngIf='q.Type=="4"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[9]!=null && q==poll.Questions[9]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <div *ngIf='poll.Questions[9]!=null && q==poll.Questions[9]'>
+                            <p>{{a}}</p>
+                        </div>
+                    </div>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="3"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="2"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+                <div *ngIf='q.Type=="1"'>
+                    <p class="answer">Vas odgovor: {{q.MyAnswer}}</p>
+                </div>
+            </div>
+
+            <!--******************************************KRAJ PITANJA***************************************************************-->
+        </div>
+        <br>
+        <button (click)='povratak()' class="btn btn-info">Povratak na pocetnu stranu</button>
+        
+        <br><br>
+
+        <br><br><br>
+
+    </div>
+    

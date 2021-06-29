@@ -1,0 +1,52 @@
+<div class="page">
+  <h1>
+    Dobrodosli na nasu stranicu!
+  </h1>
+  <br><br><br><br>
+  <h3>
+    Molimo Vas da se ulogujete!
+  </h3>
+  <br><br>
+  <div>
+    <form>
+      <table class="table" align="center">
+        <tbody>
+          <tr >            
+            <td>
+              Korisnicko ime: &nbsp;&nbsp;<input type='text' [(ngModel)]='username' name='username'>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Lozinka:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type='password' [(ngModel)]='password' name='password'>
+            </td>
+          </tr>
+          <tr >  
+            <td>
+              <button (click)='login()' class="btn btn-success">Login</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style='color: red' >
+        {{message}}
+      </span>
+      <table class="table" align="center">
+        <tbody>
+          <tr>
+            <td>
+              <h5>Ukoliko nemate svoj nalog ovde se mozete registrovati:</h5>
+            </td>
+          </tr>
+          <tr >  
+            <td>
+              <button (click)='register()' class="btn btn-success">Register</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+</div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

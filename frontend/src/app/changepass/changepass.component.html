@@ -1,0 +1,52 @@
+<div class="page">
+    <h1>
+        Dobrodosli na stranicu za promenu lozinke!
+    </h1>
+    <br><br><br><br>
+    <h3>
+        Molimo Vas da popunite trazena polja!
+    </h3>
+    <br><br>
+    <div>
+        <form>
+            <table class="table" align="center">
+                <tbody>
+                    <tr>
+                        <td>
+                            Stara lozinka: &nbsp;&nbsp;<input type='password' [(ngModel)]='oldpass' name='oldpass'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nova lozinka:&nbsp;&nbsp;<input type='password' [(ngModel)]='newpass' name='newpass'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Potvrda nove:&nbsp;&nbsp;<input type='password' [(ngModel)]='newpass2' name='newpass2'>
+                        </td>
+                    </tr>
+                    <tr height="150">
+                        <td>
+                            <button (click)='promeniLozinku()' class="btn btn-success">Promeni</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span style='color: red'>
+                                {{ErrorMessage}}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a routerLink='../'>Odustani</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

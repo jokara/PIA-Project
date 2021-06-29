@@ -1,0 +1,138 @@
+<div class="page">
+
+    <h3>Izaberite koju anketu hocete da pogledate!</h3>
+    <br><br>
+    <h5>Vase ankete:</h5> <br><br>
+
+
+    <table class="table" *ngIf='allPolls[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                Tip
+            </td>
+            <td>
+                Pregledaj odgovore
+            </td>
+            <td>
+                Statistika
+            </td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let p of allPolls'>
+                <td>
+                    {{p.Name}}
+                </td>
+                <td>
+                    {{p.StartDate}}
+                </td>
+                <td>
+                    {{p.EndDate}}
+                </td>
+                <td>
+                    {{p.Type}}
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='popuniTrenutnu(p)'>Pregledaj</button>
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)='izvuciStatistiku(p)'>Statistika</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+
+    <div *ngIf='allPollsResolved[0]!=null && flag==true'>
+        <h5>Izabrana anketa:</h5><br><br>
+        <table class="table">
+            <thead bgcolor="#6deee0">
+                <td>Naziv</td>
+                <td>Datum pocetka</td>
+                <td>Datum zavrsetka</td>
+                <td>O anketi</td>
+                <td>Tip ankete</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{allPollsResolved[0].Name}}</td>
+                    <td>{{allPollsResolved[0].StartDate}}</td>
+                    <td>{{allPollsResolved[0].EndDate}}</td>
+                    <td>{{allPollsResolved[0].About}}</td>
+                    <td>{{allPollsResolved[0].Type}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngFor="let p of allPollsResolved">
+            <h3>Ispitanik</h3>
+            <div *ngIf='p.Type=="personalizovana"'>
+                <p>Ime: {{p.NameUser}} &nbsp;&nbsp;<br> Prezime:{{p.SurnameUser}}</p>
+            </div>
+            <div *ngIf='p.Type=="anonimna"'>
+                <p>Anoniman</p>
+            </div>
+            <br>
+            <h4>Pitanja:</h4>
+            <br>
+            <div *ngFor='let q of p.Questions'><br>
+                <h5>Pitanje: {{q.Question}}</h5>
+                <div *ngIf='q.Type=="4" || q.Type=="5"'>
+                    Ponudjeni odgovori: <br>
+                    <div *ngFor='let a of q.Answers'>
+                        <p>{{a}}</p>
+                    </div><br>
+                </div>
+                <span style="color: green;">Odgovor korisnika: {{q.MyAnswer}}</span>
+            </div><br><br><br><br>
+        </div>
+    </div>
+
+
+    <div *ngIf='pollResults[0]!=null && flag==false'>
+        <div *ngFor="let q of pollResults">
+            <h4>Pitanje: {{q.Name}}</h4><br><br><br><br>
+            <table class="table">
+                <thead style="background-color:rgb(120, 194, 236);">
+                    <tr>
+                        <td>
+                            Odgovor
+                        </td>
+                        <td>
+                            Broj pojavljivanja
+                        </td>
+                        <td>
+                            Procenat pojavljivanja
+                        </td>
+                    </tr>
+                </thead>
+                <tbody *ngFor='let ans of q.Answers; let i=index'>
+                    <tr>
+                        <td>
+                            {{ans}}
+                        </td>
+                        <td>
+                            {{q.Counter[i]}}
+                        </td>
+                        <td>
+                            {{q.Percent[i]}}%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    <div *ngIf='currentPoll==null'>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <br><br><br>
+</div>

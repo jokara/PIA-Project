@@ -1,0 +1,32 @@
+<div class="page">
+
+    <h3>Unos ankete putem JSON fajla</h3>
+    <br><br>
+    <h5>Unesite JSON fajl:</h5> <br><br>
+
+    
+    <table class="table" >
+        <thead bgcolor="#6cbde0">
+            <td>
+                JSON
+            </td>
+            
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="file" (change)="fileChanged($event)">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <span style="color: red;">
+        {{message}}
+    </span><br><br>
+    <button class="btn btn-info" (click)='sacuvajAnketu()'>Sacuvaj anketu</button><br><br>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br>
+</div>

@@ -1,0 +1,15 @@
+.page {
+    background-image: url("../../assets/background.jpg");
+    text-align: center;
+    height: 100%;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+a {
+    color: white;
+}

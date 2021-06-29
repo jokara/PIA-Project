@@ -1,0 +1,209 @@
+<div class="page">
+    <br>
+    <div>
+        <h4 align="left">Dodrodosli {{username}}!</h4>
+        <div align="right">
+            <button class="btn btn-info"><a routerLink='promenaLozinke'>Promeni lozniku</a></button>
+            &nbsp;&nbsp;&nbsp;
+            <button (click)="logout()" class="btn btn-info">Izloguj se</button>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <br><br><br>
+    <div>
+        <br>
+        <table class="table">
+            <thead bgcolor="#6cbde0">
+                <tr>
+                    <td>
+                        Odobri nove zahteve
+                    </td>
+                    <td>
+                        Dodaj novog korisnika
+                    </td>
+                    <td>
+                        Obrisi postojeceg korisnika
+                    </td>
+                    <td>
+                        Izmeni postojeceg korisnika
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <button class="btn btn-info" (click)="odobriNoviZahtev()">Novi zahtevi</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="dodajNovogKorisnika()">Dodaj korisnika</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="obrisiKorisnika()">Obrisi korisnika</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="izmeniKorisnika()">Izmeni korisnika</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br><br><br><br><br>
+    <!--************************************************MENJANJE KORISNIKA***********************************************-->
+    <div *ngIf="allUsers[0]!=null && navigator==3">
+        <br>
+        <table class="table">
+            <thead bgcolor="#6cbde0">
+                <tr>
+                    <td >
+                        Slika
+                    </td>
+                    <td>
+                        Ime
+                    </td>
+                    <td>
+                        Prezime
+                    </td>
+                    <td>
+                        Korisnicko ime
+                    </td>
+                    <td>
+                        Tip
+                    </td>
+                    <td>
+                        Obrisi
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of allUsers">
+                    <td >
+                        <div *ngIf="u.picture!=''"><img [src]="u.picture" height="200px" width="300px"></div>
+                    </td>
+                    <td>
+                        {{u.name}}
+                    </td>
+                    <td>
+                        {{u.surname}}
+                    </td>
+                    <td>
+                        {{u.username}}
+                    </td>
+                    <td>
+                        {{u.type}}
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="izmeniDatogKorisnika(u)">Izmeni korisnika</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--************************************************BRISANJE KORISNIKA***********************************************-->
+    <div *ngIf="allUsers[0]!=null && navigator==2">
+        <br>
+        <table class="table">
+            <thead bgcolor="#6cbde0">
+                <tr>
+                    <td>
+                        Slika
+                    </td>
+                    <td>
+                        Ime
+                    </td>
+                    <td>
+                        Prezime
+                    </td>
+                    <td>
+                        Korisnicko ime
+                    </td>
+                    <td>
+                        Tip
+                    </td>
+                    <td>
+                        Obrisi
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of allUsers">
+                    <td >
+                        <div *ngIf="u.picture!=''"><img [src]="u.picture" height="200px" width="300px"></div>
+                    </td>
+                    <td>
+                        {{u.name}}
+                    </td>
+                    <td>
+                        {{u.surname}}
+                    </td>
+                    <td>
+                        {{u.username}}
+                    </td>
+                    <td>
+                        {{u.type}}
+                    </td>
+                    <td *ngIf="u.type!='admin'">
+                        <button class="btn btn-info" (click)="obrisiDatogKorisnika(u)">Obrisi korisnika</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--************************************************NOVI ZAHTEVI KORISNIKA***********************************************-->
+    <div *ngIf="allRegRequests[0]!=null && navigator==1">
+        <br>
+        <table class="table">
+            <thead bgcolor="#6cbde0">
+                <tr>
+                    <td>
+                        Slika
+                    </td>
+                    <td>
+                        Ime
+                    </td>
+                    <td>
+                        Prezime
+                    </td>
+                    <td>
+                        Korisnicko ime
+                    </td>
+                    <td>
+                        Tip
+                    </td>
+                    <td>
+                        Dodaj
+                    </td>
+                    <td>
+                        Obrisi
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of allRegRequests">
+                    <td>
+                        <img [src]="r.picture" height="200px" width="300px">
+                    </td>
+                    <td>
+                        {{r.name}}
+                    </td>
+                    <td>
+                        {{r.surname}}
+                    </td>
+                    <td>
+                        {{r.username}}
+                    </td>
+                    <td>
+                        {{r.type}}
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="dodajDatogKorisnikaNoviZahtev(r)">Dodaj korisnika</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" (click)="odbijDatogKorisnikaNoviZahtev(r)">Odbij korisnika</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

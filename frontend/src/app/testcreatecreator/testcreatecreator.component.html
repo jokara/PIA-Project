@@ -1,0 +1,112 @@
+<div class="page">
+
+    <h3>Molimo Vas da popunite data polja!</h3>
+    <br><br>
+
+    <table class="table" *ngIf='allTests[0]!=null'>
+        <thead bgcolor="#6cbde0">
+            <td>
+                Naziv
+            </td>
+            <td>
+                Datum pocetka
+            </td>
+            <td>
+                Datum kraja
+            </td>
+            <td>
+                O testu
+            </td>
+            <td>
+                Dozvoljeno vreme
+            </td>
+            <td>
+                Broj pitanja
+            </td>
+            <td>
+                Koliko pitanja ce se prikazivati po stranici
+            </td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" name="name" [(ngModel)]='name'>
+                </td>
+                <td>
+                    <input type="date" name="startdate" [(ngModel)]='startdate'>
+                </td>
+                <td>
+                    <input type="date" name="enddate" [(ngModel)]='enddate'>
+                </td>
+                <td>
+                    <input type="text" name="about" [(ngModel)]='about'>
+                </td>
+                <td>
+                    <input type="text" name="time" [(ngModel)]='time'>
+                </td>
+                <td>
+                    <input type="number" name="numQuestions" [(ngModel)]='numQuestions'>
+                </td>
+                <td>
+                    <input type="number" name="questionsByPage" [(ngModel)]='questionsByPage'>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button class="btn btn-info" (click)='unosPitanja()'>Unos pitanja</button>
+    <br><br><br><br>
+
+    <div *ngIf="flag=='true'">
+        <div *ngFor="let q of questions; let i=index">
+            <p>Da li zelite da ubacite neko pitanje iz baze?</p>
+            Da<input type="radio" name="{{i}}" value="yes" [(ngModel)]='radioChecks[i]'>
+            Ne<input type="radio" name="{{i}}" value="no" [(ngModel)]='radioChecks[i]'>
+
+            <div *ngIf='radioChecks[i]=="no"'>
+                <h3>Pitanje &nbsp;</h3>
+                <p>Unesite pitanje:<br>
+                    <input type="text" name="questionName[i]" [(ngModel)]='questionName[i]'>
+                </p>
+                <p>Unesite tip:<br>
+                    <input type="text" name="questionType[i]" [(ngModel)]='questionType[i]'>
+                </p>
+                <p>Unesite koliko polja korisnik treba da popuni:<br>
+                    <input type="text" name="questionNumAnswers[i]" [(ngModel)]='questionNumAnswers[i]'>
+                </p>
+                <span style="color: red">
+                    (Npr pitanje: Unesite dve boje: vrednost ovog polja je 2. Oznaci tacan odgovor: vrednost ovog polja
+                    je 1)
+                </span><br><br>
+                <p>Unesite ponudjene odgovore ukoliko postoje:<br>
+                    <input type="text" name="questionAnswers[i]" [(ngModel)]='questionAnswers[i]'>
+                </p>
+                <span style="color: red;">
+                    (Odgovore je potrebno razdvojiti zarezom ",")
+                </span><br>
+                <p>Unesite tacne odgovore:<br>
+                    <input type="text" name="questionCorrectAnswers[i]" [(ngModel)]='questionCorrectAnswers[i]'>
+                </p>
+                <span style="color: red;">
+                    (Odgovore je potrebno razdvojiti zarezom ",")
+                </span><br>
+                <p>Unesite broj poena koje pitanje nosi:<br>
+                    <input type="number" name="questionPoints[i]" [(ngModel)]='questionPoints[i]'>
+                </p>
+                <br>
+            </div>
+            <div *ngIf='radioChecks[i]=="yes"'>
+                <select name="wholeQuestion[i]" [(ngModel)]='wholeQuestion[i]'>
+                    <option *ngFor="let mq of questionsOffered" value="{{mq.Question}}">
+                        {{mq.Question}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <br><br><br>
+    <button class="btn btn-info" (click)='kreirajPitanje()'>Kreiraj test</button><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <button class="btn btn-info" (click)='nazad()'>Nazad</button>
+    <br><br><br><br><br><br><br><br><br>
+</div> 

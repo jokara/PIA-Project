@@ -1,0 +1,133 @@
+<div class="page">
+    <br>
+    <div>
+        <h4 align="left">Dodrodosli {{username}}!</h4>
+        <div align="right">
+            <button class="btn btn-info"><a routerLink='promenaLozinke'>Promeni lozniku</a></button>
+            &nbsp;&nbsp;&nbsp;
+            <button (click)="logout()" class="btn btn-info">Izloguj se</button>
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    
+    <br><br><br>
+    <div>
+        <h5 align="left">Ankete</h5>
+        <br>
+        <div align="left">
+            <h6>Sortiranje:</h6>&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoNazivu()">Naziv</button> &nbsp;&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoDatumuP()">Datum pocetka</button>&nbsp;&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoDatumuK()">Datum kraja</button>
+        </div>
+        
+        <br>
+        <table class="table" *ngIf='allPolls[0]!=null'>
+            <thead bgcolor="#6cbde0">
+                <td>
+                    Naziv
+                </td>
+                <td>
+                    Datum pocetka
+                </td>
+                <td>
+                    Datum kraja
+                </td>
+                <td>
+                    Tip
+                </td>
+                <td>
+                    Pregledanje/Resavanje
+                </td>
+            </thead>
+            <tbody>
+                <tr *ngFor='let p of allPolls'>
+                    <td>
+                        {{p.Name}}
+                    </td>
+                    <td>
+                        {{p.StartDate}}
+                    </td>
+                    <td>
+                        {{p.EndDate}}
+                    </td>
+                    <td>
+                        {{p.Type}}
+                    </td>
+                    <td>
+                        <div *ngIf='p.Locked=="no" && p.Filled!="past"'><button class="btn btn-info" (click)='popuni(p)'>Popuni</button></div>
+                        <div *ngIf='p.Locked=="yes" && p.Filled!="past"'><button class="btn btn-info" (click)='pregledaj(p)'>Pregledaj</button></div>
+                        <div *ngIf='p.Filled=="past"'>Anketa se zavrsila!</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!--*************************************TESTOVI*************************************************************-->
+
+
+    <div>
+        <h5 align="left">Testovi</h5>
+        <br>
+        <div align="left">
+            <h6>Sortiranje:</h6>&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoNazivuTest()">Naziv</button> &nbsp;&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoDatumuPTest()">Datum pocetka</button>&nbsp;&nbsp;
+            <button class="btn btn-info" (click)="sortirajPoDatumuKTest()">Datum kraja</button>
+        </div>
+        
+        <br>
+        <table class="table" *ngIf='allPolls[0]!=null'>
+            <thead bgcolor="#6cbde0">
+                <td>
+                    Naziv
+                </td>
+                <td>
+                    Datum pocetka
+                </td>
+                <td>
+                    Datum kraja
+                </td>
+                <td>
+                    O testu
+                </td>
+                <td>
+                    Dozvoljeno vreme
+                </td>
+                <td>
+                    Pregledanje/Resavanje
+                </td>
+            </thead>
+            <tbody>
+                <tr *ngFor='let t of allTests'>
+                    <td>
+                        {{t.Name}}
+                    </td>
+                    <td>
+                        {{t.StartDate}}
+                    </td>
+                    <td>
+                        {{t.EndDate}}
+                    </td>
+                    <td>
+                        {{t.About}}
+                    </td>
+                    <td>
+                        {{t.Time}}min
+                    </td>
+                    <td>
+                        <div *ngIf='t.Locked=="no"'><button class="btn btn-info" (click)='popuniTest(t)'>Popuni</button></div>
+                        <div *ngIf='t.Locked=="yes"'><button class="btn btn-info" (click)='pregledajTest(t)'>Pregledaj</button></div>
+                        <div *ngIf='t.Locked=="past"'>Test se zavrsio!</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</div>
