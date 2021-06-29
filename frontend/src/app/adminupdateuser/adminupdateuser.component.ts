@@ -43,7 +43,7 @@ export class AdminupdateuserComponent implements OnInit {
   regexPatternMail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   jmbgPomocni: String = "";
-
+/*popunjavanje starih vrednosti*/
   popuniStareVrednosti(){
     this.name=this.UserLocal.name;
     this.surname=this.UserLocal.surname;
@@ -60,7 +60,7 @@ export class AdminupdateuserComponent implements OnInit {
   }
 
 
-
+/*provera unetih podataka*/
   proveraSviPodaciUneti(): boolean {
     this.ErrorMessage = "";
     if (this.name == "") { this.ErrorMessage += "Ime ne sme biti prazno!\n" }
@@ -76,7 +76,7 @@ export class AdminupdateuserComponent implements OnInit {
     if (this.ErrorMessage == "") return true;
     return false;
   }
-
+/*provera validnosti podataka*/
   proveraSviPodaciValidni(): boolean {
     this.ErrorMessage = "";
     if (this.name.length <= 2) { this.ErrorMessage += "Ime ne sme biti krace od 3 slova!\n" }
@@ -87,7 +87,7 @@ export class AdminupdateuserComponent implements OnInit {
     if (this.ErrorMessage == "") return true;
     return false;
   }
-
+/*popunjavanje za JMBG*/
   popunjavanjeZaJMBG(): void {
     for (let index = this.birthdate.length - 1; index >= 0; index--) {
       if (index == 7) {
@@ -105,7 +105,7 @@ export class AdminupdateuserComponent implements OnInit {
       }
     }
   }
-
+/*provera za telefon*/
   proveraZaTelefon(): boolean {
     this.ErrorMessage = "";
     if (this.phone.match(this.regexPatternPhone) != null) {
@@ -116,7 +116,7 @@ export class AdminupdateuserComponent implements OnInit {
       return false;
     }
   }
-
+/*provera za lozinke*/
   proveraZaLoznike(): boolean {
     this.ErrorMessage = "";
     if (this.password == this.password2) {
@@ -134,7 +134,7 @@ export class AdminupdateuserComponent implements OnInit {
     }
     return false;
   }
-
+/*provera za JMBG*/
   proveraZaJMBG(): boolean {
     this.popunjavanjeZaJMBG();
     for (let index = 0; index < 7; index++) {
@@ -153,7 +153,7 @@ export class AdminupdateuserComponent implements OnInit {
 
     });
   }
-
+/*provera za korisnicko ime*/
   proveraZaKorisnickoIme(): boolean {
     let flag = true;
     this.Users.forEach(u => {
@@ -165,7 +165,7 @@ export class AdminupdateuserComponent implements OnInit {
     });
     return flag;
   }
-
+/*provera za email*/
   proveraZaEmail(): boolean {
     if (this.mail.match(this.regexPatternMail) != null) {
       let counter = 0;

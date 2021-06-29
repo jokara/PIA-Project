@@ -25,13 +25,13 @@ export class AdminComponent implements OnInit {
   navigator:number;
   allRegRequests:Regrequest[]=[];
   newUser:User=null;
-
+/*dohvati sve korisnike admin*/
   dohvatiSveKorisnike(){
     this.service.sviKorisnici().subscribe(data=>{
       this.allUsers = JSON.parse(JSON.stringify(data));
     })
   }
-
+/*dohvati sve zahteve korisnika admin*/
   dohvatiSveZahteveKorisnicke(){
     this.service.sviKorisnickiZahtevi().subscribe(data=>{
       this.allRegRequests = JSON.parse(JSON.stringify(data));
@@ -53,19 +53,19 @@ export class AdminComponent implements OnInit {
   dodajNovogKorisnika(){
     this.router.navigate(['/adminNoviKorisnik']);
   }
-
+/*obrisi korisnika admin*/
   obrisiDatogKorisnika(u){
     this.service.obrisiDatogKorisnika(u.username).subscribe(data=>{
     });
     window.location.reload();
   }
-
+/*obrisi zahtev korisnika admin*/
   obrisiDatogKorisnikaNoviZahtev(r){
     this.service.obrisiKorisnikovZahtev(r.username).subscribe(data=>{
     });
     window.location.reload();
   }
-
+/*dodaj novog korisnika admin*/
   dodajDatogKorisnikaNoviZahtev(r){
     this.newUser=new User();
     this.newUser.name=r.name;
@@ -87,7 +87,7 @@ export class AdminComponent implements OnInit {
     window.location.reload();
 
   }
-
+/*izmeni korisnika admin*/
   izmeniDatogKorisnika(u){
     localStorage.setItem('izmenaKorisnik',JSON.stringify(u));
     this.router.navigate(['/adminIzmenaKorisnik']);

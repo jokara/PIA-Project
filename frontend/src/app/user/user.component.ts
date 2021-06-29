@@ -51,11 +51,11 @@ export class UserComponent implements OnInit {
    * Svi testovi koji nisu reseni
    */
   allTests: Test[]=[];
-
+/*menjanje lozinke router*/
   changePass(){
     this.router.navigate(['promenaLozinke']);
   }
-
+/*dohvatanje svih testova*/
   dohvatiSveTestove(){
     this.service.sviTestovi().subscribe(data=>{
       this.allTests = JSON.parse(JSON.stringify(data));
@@ -63,7 +63,7 @@ export class UserComponent implements OnInit {
       this.dohvatiSvePopunjeneTestove();
     })
   }
-
+/*dohvatanje popunjenih testova*/
   dohvatiSvePopunjeneTestove(){
     this.service.svePopunjeneTestove(this.username).subscribe(data=>{
       this.myAllTests = JSON.parse(JSON.stringify(data));
@@ -71,7 +71,7 @@ export class UserComponent implements OnInit {
       this.proveraValidniTestovi();
     })
   }
-
+/*provera validni testovi*/
   proveraValidniTestovi(){
     for (let index = 0; index < this.myAllTests.length; index++) {
       for (let i = 0; i < this.allTests.length; i++) {
@@ -81,7 +81,7 @@ export class UserComponent implements OnInit {
       }
     }
   }
-
+/*provera trajanje testova*/
   proveriTrajanjeTestova(){
     this.allTests.forEach(t => {
       let today=new Date();
@@ -91,7 +91,7 @@ export class UserComponent implements OnInit {
 
     
   }
-
+/*provera validne ankete*/
   proveraValidneAnkete(){
     for (let index = 0; index < this.myAllPolls.length; index++) {
       for (let i = 0; i < this.allPolls.length; i++) {
@@ -101,7 +101,7 @@ export class UserComponent implements OnInit {
       }
     }
   }
-
+/*provera trajanja svih testova*/
   proveriTrajanjeAnketa(){
     this.allPolls.forEach(p => {
       let today=new Date();
@@ -115,7 +115,7 @@ export class UserComponent implements OnInit {
       if (d<today) p.Filled="past";
     });
   }
-
+/*sve popunjene ankete */
   dohvatiSvePopunjeneAnkete(){
     this.service.svePopunjeneAnkete(this.username).subscribe(data=>{
       this.myAllPolls = JSON.parse(JSON.stringify(data));
@@ -123,7 +123,7 @@ export class UserComponent implements OnInit {
     })
   }
 
-
+/*dohvati sve ankete*/
   dohvatiSveAnkete(){
     this.service.sveAnkete().subscribe(data=>{
       this.allPolls = JSON.parse(JSON.stringify(data));
@@ -131,7 +131,7 @@ export class UserComponent implements OnInit {
       this.dohvatiSvePopunjeneAnkete();
     })
   }
-
+	/*pregledaj datu anketu*/
   pregledaj(p){
     this.myAllPolls.forEach(e => {
       if (p.Id==e.Id && e.UsernameUser==this.username && e.Locked=='yes'){
@@ -140,7 +140,7 @@ export class UserComponent implements OnInit {
       }
     });
   }
-
+/*popuni anketu*/
   popuni(p){
     localStorage.setItem('vecPopunjavao','ne');
     this.myAllPolls.forEach(e => {
@@ -157,11 +157,13 @@ export class UserComponent implements OnInit {
   /**
    * Pregledanje i popunjavanje testa
    */
+   
+   /*popunjavanje testa*/
   popuniTest(t){
     localStorage.setItem('test',JSON.stringify(t));
     this.router.navigate(['/popuniTest']);
   }
-
+/*pregledaj test*/
   pregledajTest(t){
     this.myAllTests.forEach(e => {
       if (t.Id==e.Id && e.UsernameUser==this.username){
@@ -173,7 +175,7 @@ export class UserComponent implements OnInit {
   /**
    * Sortiranja i logout
    */
-
+/*sortiraj po nazivu ankete*/
   sortirajPoNazivu() {
     if (this.poNazivu == "asc") {
       this.poNazivu="desc";
@@ -202,7 +204,7 @@ export class UserComponent implements OnInit {
       })
     }
   }
-
+/*sortiranje po datumu pocetka*/
   sortirajPoDatumuP() {
     if (this.poDatumuP == "asc") {
       this.poDatumuP="desc";
@@ -231,7 +233,7 @@ export class UserComponent implements OnInit {
       })
     }
   }
-
+/*sortiranje po datumu kraja*/
   sortirajPoDatumuK() {
     if (this.poDatumuK == "asc") {
       this.poDatumuK="desc";
@@ -260,7 +262,7 @@ export class UserComponent implements OnInit {
       })
     }
   }
-
+/*sortiranje po nazivu testa*/
   sortirajPoNazivuTest() {
     if (this.poNazivuTest == "asc") {
       this.poNazivuTest="desc";
@@ -289,7 +291,7 @@ export class UserComponent implements OnInit {
       })
     }
   }
-
+/*sortiranje po datumu pocetka testa*/
   sortirajPoDatumuPTest() {
     if (this.poDatumuPTest == "asc") {
       this.poDatumuPTest="desc";
@@ -318,7 +320,7 @@ export class UserComponent implements OnInit {
       })
     }
   }
-
+/*sortiranje po datumu kraja testa*/
   sortirajPoDatumuKTest() {
     if (this.poDatumuKTest == "asc") {
       this.poDatumuKTest="desc";
@@ -348,7 +350,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-
+/*izloguj se*/
   logout(){
     localStorage.removeItem('username');
     this.router.navigate(['/login']);
